@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "2-to-1 4-bit Mux",
+      "setup": "sudo apt-get update && sudo apt-get install -y iverilog",
+      "run": "iverilog -o sim.vvp rtl/mux2.v tb/mux_2to1_4bit_tb.v && vvp sim.vvp | tee output.txt && grep -q 'TEST PASSED' output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 25
+    },
+    {
+      "name": "2-to-1 8-bit Mux",
+      "setup": "sudo apt-get update && sudo apt-get install -y iverilog",
+      "run": "iverilog -o sim.vvp rtl/mux2.v tb/mux_2to1_8bit_tb.v && vvp sim.vvp | tee output.txt && grep -q 'TEST PASSED' output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 25
+    },
+    {
+      "name": "4-to-1 4-bit Mux",
+      "setup": "sudo apt-get update && sudo apt-get install -y iverilog",
+      "run": "iverilog -o sim.vvp rtl/mux4.v tb/mux_4to1_4bit_tb.v && vvp sim.vvp | tee output.txt && grep -q 'TEST PASSED' output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 25
+    },
+    {
+      "name": "4-to-1 8-bit Mux",
+      "setup": "sudo apt-get update && sudo apt-get install -y iverilog",
+      "run": "iverilog -o sim.vvp rtl/mux4.v tb/mux_4to1_8bit_tb.v && vvp sim.vvp | tee output.txt && grep -q 'TEST PASSED' output.txt",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 2,
+      "points": 25
+    }
+  ]
+}

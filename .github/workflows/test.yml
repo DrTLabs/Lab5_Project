@@ -1,0 +1,68 @@
+name: Verilog Testbench
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-2to1-4bit:
+    name: Test 2-to-1 4-bit Mux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Test 2-to-1 4-bit Mux
+        run: |
+          iverilog -o sim.vvp rtl/mux2.v tb/mux_2to1_4bit_tb.v
+          vvp sim.vvp | tee output.txt
+          grep -q "TEST PASSED" output.txt
+
+  test-2to1-8bit:
+    name: Test 2-to-1 8-bit Mux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Test 2-to-1 8-bit Mux
+        run: |
+          iverilog -o sim.vvp rtl/mux2.v tb/mux_2to1_8bit_tb.v
+          vvp sim.vvp | tee output.txt
+          grep -q "TEST PASSED" output.txt
+
+  test-4to1-4bit:
+    name: Test 4-to-1 4-bit Mux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Test 4-to-1 4-bit Mux
+        run: |
+          iverilog -o sim.vvp rtl/mux4.v tb/mux_4to1_4bit_tb.v
+          vvp sim.vvp | tee output.txt
+          grep -q "TEST PASSED" output.txt
+
+  test-4to1-8bit:
+    name: Test 4-to-1 8-bit Mux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Test 4-to-1 8-bit Mux
+        run: |
+          iverilog -o sim.vvp rtl/mux4.v tb/mux_4to1_8bit_tb.v
+          vvp sim.vvp | tee output.txt
+          grep -q "TEST PASSED" output.txt
